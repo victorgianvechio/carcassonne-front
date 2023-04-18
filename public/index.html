@@ -127,6 +127,7 @@
   <div class="container">
     <div>
       <h1 id="city_points">Cidades</h1>
+      <h1 id="king_city"></h1>
       <h1 id="biggest_city"></h1>
       <button onclick="addCity()" type="button" class="btn btn-primary btn-lg">+</button>
       <button onclick="removeCity()" type="button" class="btn btn-danger btn-lg">-</button>
@@ -134,6 +135,7 @@
 
     <div>
       <h1 id="road_points">Ruas</h1>
+      <h1 id="king_road"></h1>
       <h1 id="biggest_road"></h1>
       <button onclick="addRoad()" type="button" class="btn btn-primary btn-lg">+</button>
       <button onclick="removeRoad()" type="button" class="btn btn-danger btn-lg">-</button>
@@ -149,7 +151,98 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          ...
+
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="meeple_normal" checked>
+            <label class="form-check-label" for="meeple_normal">
+              Normal
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="meeple_ghost">
+            <label class="form-check-label" for="meeple_ghost">
+              Ghost
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="meeple_priest">
+            <label class="form-check-label" for="meeple_priest">
+              Padre
+            </label>
+          </div>
+
+          <select id="select_feature_victor" class="form-select form-select-lg mb-3"
+            aria-label=".form-select-lg example">
+            <option selected>select...</option>
+            <option value="city">Cidade</option>
+            <option value="road">Rua</option>
+            <option value="farm">Fazenda</option>
+            <option value="barn">Celeiro</option>
+            <option value="mamada">Mamada</option>
+            <option value="garden">Jadim</option>
+            <option value="monastery">Monastério</option>
+            <option value="castle">Castelo</option>
+          </select>
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Tiles">
+            <button class="btn btn-outline-primary" type="button">+</button>
+            <button class="btn btn-outline-danger" type="button">-</button>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_inn">
+            <label class="form-check-label" for="check_inn">
+              INN
+            </label>
+          </div>
+
+          <!-- <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_catedral">
+            <label class="form-check-label" for="check_catedral">
+              Catedral
+            </label>
+          </div> -->
+
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Catedral</label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_porco">
+            <label class="form-check-label" for="check_porco">
+              Porco
+            </label>
+          </div>
+
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Escudos">
+            <button class="btn btn-outline-primary" type="button">+</button>
+            <button class="btn btn-outline-danger" type="button">-</button>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_fada">
+            <label class="form-check-label" for="check_fada">
+              Fada
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_mago">
+            <label class="form-check-label" for="check_mago">
+              Mago
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="check_bruxa">
+            <label class="form-check-label" for="check_bruxa">
+              Bruxa
+            </label>
+          </div>
+
         </div>
         <div class="modal-footer">
           <button onclick="addFairy('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+

@@ -1,9 +1,7 @@
 const API_BASE_URL = 'http://168.138.141.170:6060/api/v1/carcassonne';
 
 (async function () {
-  console.log('Executou');
   await getInterface();
-
 })();
 
 
@@ -23,6 +21,8 @@ async function getInterface() {
     $("#road_points").text('Ruas: ' + response.data.ROADS);
     $("#biggest_city").text(response.data.BIGGEST_CITY + ' tiles');
     $("#biggest_road").text(response.data.BIGGEST_ROAD + ' tiles');
+    $("#king_city").text('Rei: ' + response.data.KING_CITY);
+    $("#king_road").text('Rei: ' + response.data.KING_ROAD);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // OURO E ESPECIARIAS
@@ -178,3 +178,12 @@ async function removeSilk(player) {
     console.error(error);
   }
 }
+
+// $(document).on('change', 'select', function() {
+//   console.log($(this).val()); // the selected options’s value
+
+//   // if you want to do stuff based on the OPTION element:
+//   var opt = $(this).find('option:selected')[0];
+//   // use switch or if/else etc.
+//    console.log($(this).val());
+// });
