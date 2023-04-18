@@ -19,6 +19,7 @@ body, input, textarea, button {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .player-container {
@@ -31,7 +32,7 @@ body, input, textarea, button {
   flex-basis: calc(28%); */
 
   flex-basis: 33.33%;
-  height: 24rem; /* altura opcional */
+  /* height: 24rem; */
   background-color: #fff;
   box-sizing: border-box;
   text-align: center;
@@ -81,8 +82,10 @@ body, input, textarea, button {
 }
 
 .button-container {
-  margin-top: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* justify-content: space-between; */
 }

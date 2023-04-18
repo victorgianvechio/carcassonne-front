@@ -23,7 +23,7 @@
     "eslint:fix": "yarn eslint --fix src --ext .js",
     "test": "jest -i",
     "docker:build-img": "sudo docker build . -t carcassonne-front",
-    "docker:run-img": "sudo docker run -d -p 6060:6060 --name carcassonne-front --restart unless-stopped carcassonne-front",
+    "docker:run-img": "sudo docker run -d -p 6000:6000 --name carcassonne-front --restart unless-stopped carcassonne-front",
     "docker:rm": "sudo docker stop carcassonne-front && sudo docker rm carcassonne-front && sudo docker rmi carcassonne-front",
     "docker:explore": "sudo docker exec -it carcassonne-front bash"
   },

@@ -17,6 +17,9 @@
     integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
     crossorigin="anonymous"></script>
 
+  <!-- AXIOS -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
   <!-- JQUERY -->
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"
     integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
@@ -28,6 +31,7 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
   <link rel="stylesheet" href="styles.css">
+  <script src="main.js"></script>
 </head>
 
 <body>
@@ -45,9 +49,19 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button id="button_add_victor" type="button" class="btn btn-primary btn-lg">+</button>
-        <button id="button_add_fairy_victor" type="button" class="btn btn-primary btn-lg">fada</button>
+        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+          data-bs-target="#modalVictor">+</button>
       </div>
+
+      <span id="ouro-victor">Ouro: 0 ~ 0 pts</span>
+      <br>
+      <span id="barril-victor">Barril: 0 ~ 0 pts</span>
+      <br>
+      <span id="trigo-victor">Trigo: 0 ~ 0 pts</span>
+      <br>
+      <span id="seda-victor">Seda: 0 ~ 0 pts</span>
+      <br>
+      <span id="fada-victor">Fada: 0 ~ 0 pts</span>
     </div>
 
 
@@ -64,9 +78,19 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button id="button_add_shindi" type="button" class="btn btn-primary btn-lg">+</button>
-        <button id="button_add_fairy_victor" type="button" class="btn btn-primary btn-lg">fada</button>
+        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+          data-bs-target="#modalShindi">+</button>
       </div>
+
+      <span id="ouro-shindi">Ouro: 0 ~ 0 pts</span>
+      <br>
+      <span id="barril-shindi">Barril: 0 ~ 0 pts</span>
+      <br>
+      <span id="trigo-shindi">Trigo: 0 ~ 0 pts</span>
+      <br>
+      <span id="seda-shindi">Seda: 0 ~ 0 pts</span>
+      <br>
+      <span id="fada-shindi">Fada: 0 ~ 0 pts</span>
     </div>
 
 
@@ -83,8 +107,105 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button id="button_add_renan" type="button" class="btn btn-primary btn-lg">+</button>
-        <button id="button_add_fairy_victor" type="button" class="btn btn-primary btn-lg">fada</button>
+        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+          data-bs-target="#modalRenan">+</button>
+      </div>
+
+      <span id="ouro-renan">Ouro: 0 ~ 0 pts</span>
+      <br>
+      <span id="barril-renan">Barril: 0 ~ 0 pts</span>
+      <br>
+      <span id="trigo-renan">Trigo: 0 ~ 0 pts</span>
+      <br>
+      <span id="seda-renan">Seda: 0 ~ 0 pts</span>
+      <br>
+      <span id="fada-renan">Fada: 0 ~ 0 pts</span>
+    </div>
+
+  </div>
+
+  <div class="container">
+    <div>
+      <h1 id="city_points">Cidades</h1>
+      <h1 id="biggest_city"></h1>
+      <button onclick="addCity()" type="button" class="btn btn-primary btn-lg">+</button>
+      <button onclick="removeCity()" type="button" class="btn btn-danger btn-lg">-</button>
+    </div>
+
+    <div>
+      <h1 id="road_points">Ruas</h1>
+      <h1 id="biggest_road"></h1>
+      <button onclick="addRoad()" type="button" class="btn btn-primary btn-lg">+</button>
+      <button onclick="removeRoad()" type="button" class="btn btn-danger btn-lg">-</button>
+    </div>
+  </div>
+
+  <!-- Modal VICTOR-->
+  <div class="modal" id="modalVictor" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Feature - VICTOR</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+ fada</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+          <button onclick="addFairy('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+            fada</button>
+          <button onclick="removeFairy('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+            fada</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal SHINDI-->
+  <div class="modal" id="modalShindi" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Feature - SHINDI</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+ fada</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+          <button onclick="addFairy('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+            fada</button>
+          <button onclick="removeFairy('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+            fada</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal RENAN-->
+  <div class="modal" id="modalRenan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <!-- <div class="modal-dialog modal-dialog-centered" role="document"> -->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add Feature - RENAN</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">+ fada</button>
+          <button type="button" class="btn btn-primary">Save changes</button> -->
+          <button onclick="addFairy('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+            fada</button>
+          <button onclick="removeFairy('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+            fada</button>
+        </div>
       </div>
     </div>
   </div>

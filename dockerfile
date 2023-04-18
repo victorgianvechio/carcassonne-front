@@ -3,5 +3,5 @@ WORKDIR /app/carcassonne-front
 COPY package.json ./
 RUN yarn
 COPY . .
-EXPOSE 6060
+EXPOSE 6000
 CMD yarn prod
