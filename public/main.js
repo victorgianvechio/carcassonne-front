@@ -106,3 +106,75 @@ async function removeFairy(player) {
     console.error(error);
   }
 }
+
+async function addGold(player) {
+  try {
+    await axios.post(API_BASE_URL + '/addGold', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeGold(player) {
+  try {
+    await axios.post(API_BASE_URL + '/removeGold', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addBarrel(player) {
+  try {
+    await axios.post(API_BASE_URL + '/addBarrel', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeBarrel(player) {
+  try {
+    await axios.post(API_BASE_URL + '/removeBarrel', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addWheat(player) {
+  try {
+    await axios.post(API_BASE_URL + '/addWheat', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeWheat(player) {
+  try {
+    await axios.post(API_BASE_URL + '/removeWheat', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function addSilk(player) {
+  try {
+    await axios.post(API_BASE_URL + '/addSilk', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeSilk(player) {
+  try {
+    await axios.post(API_BASE_URL + '/removeSilk', {player});
+    await getInterface();   
+  } catch (error) {
+    console.error(error);
+  }
+}
