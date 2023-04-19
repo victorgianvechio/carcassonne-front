@@ -179,11 +179,200 @@ async function removeSilk(player) {
   }
 }
 
-// $(document).on('change', 'select', function() {
-//   console.log($(this).val()); // the selected options’s value
+// async function countTiles(value) {
+//   let valor = $("#input_tiles").val();
+//   if(value === '+'){
+//     $("#input_tiles").val(valor + 1);
+//   }
 
-//   // if you want to do stuff based on the OPTION element:
-//   var opt = $(this).find('option:selected')[0];
-//   // use switch or if/else etc.
-//    console.log($(this).val());
-// });
+//   if(value === '-'){
+//     $("#input_tiles").val(valor -1);
+//   }
+// }
+ 
+async function addFeature(player) {
+
+  let meeple = $('input[name="radio_meeple"]:checked').val();
+  let feature = $("#select_features").val();
+
+  let tiles = $("#input_tiles").val();
+  let shields = $("#input_shields").val();
+
+  let watchtower_type =  $("#select_watchtower").val();
+  let watchtower_quantity =  $("#input_watchtower").val();
+
+  let inn = $('#check_inn').is(':checked');
+  let porco = $('#check_porco').is(':checked');
+  let catedral = $('#check_catedral').is(':checked');
+  let fada = $('#check_fada').is(':checked');
+  let mago = $('#check_mago').is(':checked');
+  let bruxa = $('#check_bruxa').is(':checked');
+
+  if(feature === 'CITY') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      wtch: bruxa,
+      mage: mago,
+      tiles: tiles,
+      shields: shields,
+      cathedral: catedral,
+      watchtower_feature: watchtower_type,
+      watchtower_quantity: watchtower_quantity
+    }
+
+    try {
+      const result = await axios.post(API_BASE_URL + '/city', obj);
+
+      console.log(obj);
+      console.log(result);
+
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  if(feature === 'ROAD') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      wtch: bruxa,
+      mage: mago,
+      tiles: tiles,
+      inn: inn,
+      watchtower_feature: watchtower_type,
+      watchtower_quantity: watchtower_quantity
+    }
+
+     try {
+      await axios.post(API_BASE_URL + '/road', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  if(feature === 'FARM') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      completed_cities: tiles,
+      castles: shields,
+      pig: porco
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/farm', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  if(feature === 'BARN') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      completed_cities: tiles,
+      castles: shields
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/barn', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  if(feature === 'MAMADA') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      completed_cities: tiles,
+      castles: shields,
+      pig: porco
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/mamada', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  if(feature === 'GARDEN') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      tiles: tiles
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/garden', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+
+  if(feature === 'MONASTERY') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      fairy: fada,
+      tiles: tiles
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/monastery', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  if(feature === 'CASTLE') {
+    const obj = {
+      player: player,
+      meeple: meeple,
+      total_points: tiles
+    }
+
+    try {
+      await axios.post(API_BASE_URL + '/castle', obj);
+      await getInterface();   
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  $('input[name="radio_meeple"]:checked').val('NORMAL');
+  $("#select_features").val('');
+
+  $("#input_tiles").val(0);
+  $("#input_shields").val(0);
+
+  $("#select_watchtower").val('');
+  $("#input_watchtower").val(0);
+
+  $('#check_inn').prop('checked', false);
+  $('#check_porco').prop('checked', false);
+  $('#check_catedral').prop('checked', false);
+  $('#check_fada').prop('checked', false);
+  $('#check_mago').prop('checked', false);
+  $('#check_bruxa').prop('checked', false);
+
+}

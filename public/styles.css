@@ -89,3 +89,13 @@ body, input, textarea, button {
   justify-content: center;
   /* justify-content: space-between; */
 }
+
+.others-container {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  /* margin-right: 1rem; */
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  justify-content: space-between;
+}
