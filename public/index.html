@@ -49,7 +49,7 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+        <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
           data-bs-target="#modalVictor">+</button>
       </div>
 
@@ -78,7 +78,7 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+        <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
           data-bs-target="#modalShindi">+</button>
       </div>
 
@@ -107,7 +107,7 @@
 
       <!-- BUTTON -->
       <div class="button-container">
-        <button type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
+        <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg" href="#" data-bs-toggle="modal"
           data-bs-target="#modalRenan">+</button>
       </div>
 
@@ -180,7 +180,7 @@
             </div>
           </div>
 
-          <select id="select_features_victor" class="form-select form-select-lg mb-3"
+          <select name="select_features_victor" id="select_features_victor" class="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example">
             <option value="" selected>Feature</option>
             <option value="CITY">Cidade</option>
@@ -193,7 +193,7 @@
             <option value="CASTLE">Castelo</option>
           </select>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_tiles_victor" class="input-group">
             <label for="input_tiles_victor" class="form-label">Tiles</label>
             <input id="input_tiles_victor" name="input_tiles_victor" type="number" class="form-control"
               placeholder="Tiles" value="0" readonly>
@@ -203,26 +203,21 @@
 
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_inn_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_victor">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_catedral_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_victor">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <!-- <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Catedral</label>
-          </div> -->
-
-            <div class="form-check">
+            <div id="group_pig_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_victor">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -230,7 +225,7 @@
             </div>
           </div>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_shields_victor" class="input-group">
             <label for="input_shields" class="form-label">Escudos</label>
             <input id="input_shields_victor" type="number" class="form-control" placeholder="Escudos" value="0"
               readonly>
@@ -238,23 +233,31 @@
             <button onclick="countShields('-', 'victor')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
+          <!-- <div style="display:none;" id="group_castles_victor" class="input-group">
+            <label for="input_castles" class="form-label">Castelos</label>
+            <input id="input_castles_victor" type="number" class="form-control" placeholder="Escudos" value="0"
+              readonly>
+            <button onclick="countCastles('+', 'victor')" class="btn btn-outline-primary" type="button">+</button>
+            <button onclick="countCastles('-', 'victor')" class="btn btn-outline-danger" type="button">-</button>
+          </div> -->
+
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_fairy_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_fada_victor">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_mage_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_mago_victor">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_witch_victor" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_bruxa_victor">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -262,15 +265,17 @@
             </div>
           </div>
 
-          <select id="select_watchtower_victor" class="form-select" aria-label="Default select example">
+          <select style="display:none;" id="select_watchtower_victor" class="form-select"
+            aria-label="Default select example">
             <option value="" selected>Watchtower tipo</option>
             <option value="CITY">Cidade</option>
             <option value="ROAD">Rua</option>
             <option value="MONASTERY">Monastério</option>
             <option value="MEEPLE">Meeple</option>
+            <option value="SHIELD">Shield</option>
           </select>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_watchtower_victor" class="input-group">
             <label for="input_watchtower" class="form-label">Quantidade</label>
             <input id="input_watchtower_victor" type="number" class="form-control" placeholder="Watchtower quantidade"
               value="0" readonly>
@@ -278,8 +283,8 @@
             <button onclick="countWatchtower('-', 'victor')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
-          <div class="button-container">
-            <button onclick="addFeature('VICTOR')" type="button" class="btn btn-primary"
+          <div id="group_btn_victor" style="display:none;" class="button-container">
+            <button id="btn-add-victor" onclick="addFeature('VICTOR')" type="button" class="btn btn-primary"
               data-bs-dismiss="modal">add</button>
           </div>
 
@@ -348,7 +353,7 @@
             </div>
           </div>
 
-          <select id="select_features_shindi" class="form-select form-select-lg mb-3"
+          <select name="select_features_shindi" id="select_features_shindi" class="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example">
             <option value="" selected>Feature</option>
             <option value="CITY">Cidade</option>
@@ -361,35 +366,31 @@
             <option value="CASTLE">Castelo</option>
           </select>
 
-          <div class="input-group">
-            <label for="input_tiles" class="form-label">Tiles</label>
-            <input id="input_tiles_shindi" type="number" class="form-control" placeholder="Tiles" value="0" readonly>
+          <div style="display:none;" id="group_tiles_shindi" class="input-group">
+            <label for="input_tiles_shindi" class="form-label">Tiles</label>
+            <input id="input_tiles_shindi" name="input_tiles_shindi" type="number" class="form-control"
+              placeholder="Tiles" value="0" readonly>
             <button onclick="countTiles('+', 'shindi')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countTiles('-', 'shindi')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_inn_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_shindi">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_catedral_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_shindi">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <!-- <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Catedral</label>
-          </div> -->
-
-            <div class="form-check">
+            <div id="group_pig_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_shindi">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -397,7 +398,7 @@
             </div>
           </div>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_shields_shindi" class="input-group">
             <label for="input_shields" class="form-label">Escudos</label>
             <input id="input_shields_shindi" type="number" class="form-control" placeholder="Escudos" value="0"
               readonly>
@@ -405,23 +406,31 @@
             <button onclick="countShields('-', 'shindi')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
+          <!-- <div style="display:none;" id="group_castles_shindi" class="input-group">
+            <label for="input_castles" class="form-label">Castelos</label>
+            <input id="input_castles_shindi" type="number" class="form-control" placeholder="Escudos" value="0"
+              readonly>
+            <button onclick="countCastles('+', 'shindi')" class="btn btn-outline-primary" type="button">+</button>
+            <button onclick="countCastles('-', 'shindi')" class="btn btn-outline-danger" type="button">-</button>
+          </div> -->
+
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_fairy_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_fada_shindi">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_mage_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_mago_shindi">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_witch_shindi" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_bruxa_shindi">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -429,15 +438,17 @@
             </div>
           </div>
 
-          <select id="select_watchtower_shindi" class="form-select" aria-label="Default select example">
+          <select style="display:none;" id="select_watchtower_shindi" class="form-select"
+            aria-label="Default select example">
             <option value="" selected>Watchtower tipo</option>
             <option value="CITY">Cidade</option>
             <option value="ROAD">Rua</option>
             <option value="MONASTERY">Monastério</option>
             <option value="MEEPLE">Meeple</option>
+            <option value="SHIELD">Shield</option>
           </select>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_watchtower_shindi" class="input-group">
             <label for="input_watchtower" class="form-label">Quantidade</label>
             <input id="input_watchtower_shindi" type="number" class="form-control" placeholder="Watchtower quantidade"
               value="0" readonly>
@@ -445,10 +456,11 @@
             <button onclick="countWatchtower('-', 'shindi')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
-          <div class="button-container">
-            <button onclick="addFeature('SHINDI')" type="button" class="btn btn-primary"
+          <div id="group_btn_shindi" style="display:none;" class="button-container">
+            <button id="btn-add-shindi" onclick="addFeature('SHINDI')" type="button" class="btn btn-primary"
               data-bs-dismiss="modal">add</button>
           </div>
+
         </div>
         <div class="modal-footer">
           <button onclick="addFairy('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
@@ -515,7 +527,7 @@
             </div>
           </div>
 
-          <select id="select_features_renan" class="form-select form-select-lg mb-3"
+          <select name="select_features_renan" id="select_features_renan" class="form-select form-select-lg mb-3"
             aria-label=".form-select-lg example">
             <option value="" selected>Feature</option>
             <option value="CITY">Cidade</option>
@@ -528,35 +540,31 @@
             <option value="CASTLE">Castelo</option>
           </select>
 
-          <div class="input-group">
-            <label for="input_tiles" class="form-label">Tiles</label>
-            <input id="input_tiles_renan" type="number" class="form-control" placeholder="Tiles" value="0" readonly>
+          <div style="display:none;" id="group_tiles_renan" class="input-group">
+            <label for="input_tiles_renan" class="form-label">Tiles</label>
+            <input id="input_tiles_renan" name="input_tiles_renan" type="number" class="form-control"
+              placeholder="Tiles" value="0" readonly>
             <button onclick="countTiles('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countTiles('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_inn_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_renan">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_catedral_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_renan">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <!-- <div class="form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-            <label class="form-check-label" for="flexSwitchCheckDefault">Catedral</label>
-          </div> -->
-
-            <div class="form-check">
+            <div id="group_pig_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_renan">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -564,30 +572,38 @@
             </div>
           </div>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_shields_renan" class="input-group">
             <label for="input_shields" class="form-label">Escudos</label>
             <input id="input_shields_renan" type="number" class="form-control" placeholder="Escudos" value="0" readonly>
             <button onclick="countShields('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countShields('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
+          <!-- <div style="display:none;" id="group_castles_renan" class="input-group">
+            <label for="input_castles" class="form-label">Castelos</label>
+            <input id="input_castles_renan" type="number" class="form-control" placeholder="Escudos" value="0"
+              readonly>
+            <button onclick="countCastles('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
+            <button onclick="countCastles('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
+          </div> -->
+
           <div class="others-container">
 
-            <div class="form-check">
+            <div id="group_fairy_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_fada_renan">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_mage_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_mago_renan">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div class="form-check">
+            <div id="group_witch_renan" style="display:none;" class="form-check">
               <input class="form-check-input" type="checkbox" id="check_bruxa_renan">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -595,15 +611,17 @@
             </div>
           </div>
 
-          <select id="select_watchtower_renan" class="form-select" aria-label="Default select example">
+          <select style="display:none;" id="select_watchtower_renan" class="form-select"
+            aria-label="Default select example">
             <option value="" selected>Watchtower tipo</option>
             <option value="CITY">Cidade</option>
             <option value="ROAD">Rua</option>
             <option value="MONASTERY">Monastério</option>
             <option value="MEEPLE">Meeple</option>
+            <option value="SHIELD">Shield</option>
           </select>
 
-          <div class="input-group">
+          <div style="display:none;" id="group_watchtower_renan" class="input-group">
             <label for="input_watchtower" class="form-label">Quantidade</label>
             <input id="input_watchtower_renan" type="number" class="form-control" placeholder="Watchtower quantidade"
               value="0" readonly>
@@ -611,10 +629,11 @@
             <button onclick="countWatchtower('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
-          <div class="button-container">
-            <button onclick="addFeature('RENAN')" type="button" class="btn btn-primary"
+          <div id="group_btn_renan" style="display:none;" class="button-container">
+            <button id="btn-add-renan" onclick="addFeature('RENAN')" type="button" class="btn btn-primary"
               data-bs-dismiss="modal">add</button>
           </div>
+
         </div>
         <div class="modal-footer">
           <button onclick="addFairy('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+

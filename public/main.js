@@ -1,8 +1,452 @@
 const API_BASE_URL = 'http://168.138.141.170:6060/api/v1/carcassonne';
 
-(async function () {
+// (async function () {
+//   await getInterface();
+// })();
+
+$(document).ready(async function() {
+
   await getInterface();
-})();
+
+  let watchtower_type =  '';
+  let inn = false;
+  let porco = false;
+  let catedral = false; 
+  let fada = false;
+  let mago = false;
+  let bruxa = false;
+  let botao = '';
+  let group_tiles = '';
+  let group_shields = '';
+  let group_watchtower = '';
+
+  $('#select_features_victor').change(function() {
+    let feature_select = $(this).val();
+  
+    watchtower_type =  $("#select_watchtower_victor");  
+    inn = $('#group_inn_victor');
+    porco = $('#group_porco_victor');
+    catedral = $('#group_catedral_victor');
+    fada = $('#group_fairy_victor');
+    mago = $('#group_mage_victor');
+    bruxa = $('#group_witch_victor');
+    botao = $('#group_btn_victor');
+    group_tiles = $('#group_tiles_victor');
+    group_shields = $('#group_shields_victor');
+    group_watchtower = $('#group_watchtower_victor');
+
+    if(feature_select === '') {
+      group_tiles.hide();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.hide();
+    }
+
+    if(feature_select === 'CITY') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.hide();
+      porco.hide();
+      catedral.show();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'ROAD') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.show();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'FARM') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'BARN') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MAMADA') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'GARDEN') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MONASTERY') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'CASTLE') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+  });
+
+  $('#select_features_shindi').change(function() {
+    let feature_select = $(this).val();
+
+    watchtower_type =  $("#select_watchtower_shindi");  
+    inn = $('#group_inn_shindi');
+    porco = $('#group_porco_shindi');
+    catedral = $('#group_catedral_shindi');
+    fada = $('#group_fairy_shindi');
+    mago = $('#group_mage_shindi');
+    bruxa = $('#group_witch_shindi');
+    botao = $('#group_btn_shindi');
+    group_tiles = $('#group_tiles_shindi');
+    group_shields = $('#group_shields_shindi');
+    group_watchtower = $('#group_watchtower_shindi');
+
+    if(feature_select === '') {
+      group_tiles.hide();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.hide();
+    }
+
+    if(feature_select === 'CITY') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.hide();
+      porco.hide();
+      catedral.show();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'ROAD') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.show();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'FARM') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'BARN') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MAMADA') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'GARDEN') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MONASTERY') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'CASTLE') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+  });
+
+  $('#select_features_renan').change(function() {
+    let feature_select = $(this).val();
+
+    watchtower_type =  $("#select_watchtower_renan");  
+    inn = $('#group_inn_renan');
+    porco = $('#group_porco_renan');
+    catedral = $('#group_catedral_renan');
+    fada = $('#group_fairy_renan');
+    mago = $('#group_mage_renan');
+    bruxa = $('#group_witch_renan');
+    botao = $('#group_btn_renan');
+    group_tiles = $('#group_tiles_renan');
+    group_shields = $('#group_shields_renan');
+    group_watchtower = $('#group_watchtower_renan');
+
+    if(feature_select === '') {
+      group_tiles.hide();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.hide();
+    }
+
+    if(feature_select === 'CITY') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.hide();
+      porco.hide();
+      catedral.show();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'ROAD') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.show();
+      watchtower_type.show();
+      inn.show();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.show();
+      bruxa.show();
+      botao.show();
+    }
+
+    if(feature_select === 'FARM') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'BARN') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MAMADA') {
+      group_tiles.show();
+      group_shields.show();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.show();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'GARDEN') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'MONASTERY') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.show();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+
+    if(feature_select === 'CASTLE') {
+      group_tiles.show();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.show();
+    }
+  });
+});
 
 
 
@@ -461,6 +905,11 @@ async function addFeature(player) {
     }
   }
 
+  await resetModal();
+
+}
+
+async function resetModal() {
   $('input[name="radio_meeple_victor"]:checked').val('NORMAL');
   $("#select_features_victor").val('');
   $("#input_tiles_victor").val(0);
@@ -500,4 +949,41 @@ async function addFeature(player) {
   $('#check_mago_renan').prop('checked', false);
   $('#check_bruxa_renan').prop('checked', false);
 
+  ////////////////////////////////////////////////////////////
+
+  $("#select_watchtower_victor").hide();  
+  $('#group_inn_victor').hide();  
+  $('#group_porco_victor').hide();  
+  $('#group_catedral_victor').hide();  
+  $('#group_fairy_victor').hide();  
+  $('#group_mage_victor').hide();  
+  $('#group_witch_victor').hide(); 
+  $('#group_btn_victor').hide();
+  $('#group_tiles_victor').hide();  
+  $('#group_shields_victor').hide();  
+  $('#group_watchtower_victor').hide();  
+
+  $("#select_watchtower_shindi").hide();  
+  $('#group_inn_shindi').hide();  
+  $('#group_porco_shindi').hide();  
+  $('#group_catedral_shindi').hide();  
+  $('#group_fairy_shindi').hide();  
+  $('#group_mage_shindi').hide();  
+  $('#group_witch_shindi').hide();  
+  $('#group_btn_shindi').hide();
+  $('#group_tiles_shindi').hide();  
+  $('#group_shields_shindi').hide();  
+  $('#group_watchtower_shindi').hide();  
+
+  $("#select_watchtower_renan").hide();  
+  $('#group_inn_renan').hide();  
+  $('#group_porco_renan').hide();  
+  $('#group_catedral_renan').hide();  
+  $('#group_fairy_renan').hide();  
+  $('#group_mage_renan').hide();  
+  $('#group_witch_renan').hide();  
+  $('#group_btn_renan').hide();
+  $('#group_tiles_renan').hide();  
+  $('#group_shields_renan').hide();  
+  $('#group_watchtower_renan').hide();  
 }
