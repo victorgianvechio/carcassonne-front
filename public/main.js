@@ -179,34 +179,124 @@ async function removeSilk(player) {
   }
 }
 
-// async function countTiles(value) {
-//   let valor = $("#input_tiles").val();
-//   if(value === '+'){
-//     $("#input_tiles").val(valor + 1);
-//   }
+async function countTiles(value, name) {
+  let valor = Number($("#input_tiles_" + name).val());
+  if(value === '+'){
+    $("#input_tiles_" + name).val(valor + 1);
+  }
 
-//   if(value === '-'){
-//     $("#input_tiles").val(valor -1);
-//   }
-// }
+  if(value === '-'){ 
+    $("#input_tiles_" + name).val(valor -1);
+  }
+}
+
+async function countShields(value, name) {
+  let valor = Number($("#input_shields_" + name).val());
+  if(value === '+'){
+    $("#input_shields_" + name).val(valor + 1);
+  }
+
+  if(value === '-'){
+    $("#input_shields_" + name).val(valor -1);
+  }
+}
+
+async function countWatchtower(value, name) {
+  let valor = Number($("#input_watchtower_" + name).val());
+  if(value === '+'){
+    $("#input_watchtower_" + name).val(valor + 1); 
+  }
+
+  if(value === '-'){
+    $("#input_watchtower_" + name).val(valor -1);
+  }
+}
  
 async function addFeature(player) {
 
-  let meeple = $('input[name="radio_meeple"]:checked').val();
-  let feature = $("#select_features").val();
+  let meeple = '';
+  let feature = 0;
+  
+  let tiles = 0;
+  let shields =  0;
 
-  let tiles = $("#input_tiles").val();
-  let shields = $("#input_shields").val();
+  let watchtower_type =  '';
+  let watchtower_quantity =  0; 
 
-  let watchtower_type =  $("#select_watchtower").val();
-  let watchtower_quantity =  $("#input_watchtower").val();
+  let inn = false;
+  let porco = false;
+  let catedral = false; 
+  let fada = false;
+  let mago = false;
+  let bruxa = false;
 
-  let inn = $('#check_inn').is(':checked');
-  let porco = $('#check_porco').is(':checked');
-  let catedral = $('#check_catedral').is(':checked');
-  let fada = $('#check_fada').is(':checked');
-  let mago = $('#check_mago').is(':checked');
-  let bruxa = $('#check_bruxa').is(':checked');
+  if(player === 'VICTOR') {
+    meeple = $('input[name="radio_meeple_victor"]:checked').val();
+    feature = $("#select_features_victor").val();
+  
+    tiles = Number($("#input_tiles_victor").val());
+    shields = Number($("#input_shields_victor").val());
+  
+    watchtower_type =  $("#select_watchtower_victor").val();
+    watchtower_quantity =  Number($("#input_watchtower_victor").val());
+  
+    inn = $('#check_inn_victor').is(':checked');
+    porco = $('#check_porco_victor').is(':checked');
+    catedral = $('#check_catedral_victor').is(':checked');
+    fada = $('#check_fada_victor').is(':checked');
+    mago = $('#check_mago_victor').is(':checked');
+    bruxa = $('#check_bruxa_victor').is(':checked');
+  }
+
+  if(player === 'SHINDI') {
+    meeple = $('input[name="radio_meeple_shindi"]:checked').val();
+    feature = $("#select_features_shindi").val();
+  
+    tiles = Number($("#input_tiles_shindi").val());
+    shields = Number($("#input_shields_shindi").val());
+  
+    watchtower_type =  $("#select_watchtower_shindi").val();
+    watchtower_quantity =  Number($("#input_watchtower_shindi").val());
+  
+    inn = $('#check_inn_shindi').is(':checked');
+    porco = $('#check_porco_shindi').is(':checked');
+    catedral = $('#check_catedral_shindi').is(':checked');
+    fada = $('#check_fada_shindi').is(':checked');
+    mago = $('#check_mago_shindi').is(':checked');
+    bruxa = $('#check_bruxa_shindi').is(':checked');
+  }
+
+  if(player === 'RENAN') {
+    meeple = $('input[name="radio_meeple_renan"]:checked').val();
+    feature = $("#select_features_renan").val();
+  
+    tiles = Number($("#input_tiles_renan").val());
+    shields = Number($("#input_shields_renan").val());
+  
+    watchtower_type =  $("#select_watchtower_renan").val();
+    watchtower_quantity =  Number($("#input_watchtower_renan").val());
+  
+    inn = $('#check_inn_renan').is(':checked');
+    porco = $('#check_porco_renan').is(':checked');
+    catedral = $('#check_catedral_renan').is(':checked');
+    fada = $('#check_fada_renan').is(':checked');
+    mago = $('#check_mago_renan').is(':checked');
+    bruxa = $('#check_bruxa_renan').is(':checked');
+  }
+  
+
+  // console.log(meeple)
+  // console.log(feature)
+  // console.log(tiles)
+  // console.log(shields)
+  // console.log(watchtower_type)
+  // console.log(watchtower_quantity)
+  // console.log(inn)
+  // console.log(porco)
+  // console.log(catedral)
+  // console.log(fada)
+  // console.log(mago)
+  // console.log(bruxa)
 
   if(feature === 'CITY') {
     const obj = {
@@ -222,12 +312,10 @@ async function addFeature(player) {
       watchtower_quantity: watchtower_quantity
     }
 
+    console.log(obj)
+
     try {
-      const result = await axios.post(API_BASE_URL + '/city', obj);
-
-      console.log(obj);
-      console.log(result);
-
+      await axios.post(API_BASE_URL + '/city', obj);
       await getInterface();   
     } catch (error) {
       console.error(error);
@@ -246,6 +334,8 @@ async function addFeature(player) {
       watchtower_feature: watchtower_type,
       watchtower_quantity: watchtower_quantity
     }
+
+    console.log(obj)
 
      try {
       await axios.post(API_BASE_URL + '/road', obj);
@@ -266,6 +356,8 @@ async function addFeature(player) {
       pig: porco
     }
 
+    console.log(obj)
+
     try {
       await axios.post(API_BASE_URL + '/farm', obj);
       await getInterface();   
@@ -282,6 +374,8 @@ async function addFeature(player) {
       completed_cities: tiles,
       castles: shields
     }
+
+    console.log(obj)
 
     try {
       await axios.post(API_BASE_URL + '/barn', obj);
@@ -302,6 +396,8 @@ async function addFeature(player) {
       pig: porco
     }
 
+    console.log(obj)
+
     try {
       await axios.post(API_BASE_URL + '/mamada', obj);
       await getInterface();   
@@ -318,6 +414,8 @@ async function addFeature(player) {
       fairy: fada,
       tiles: tiles
     }
+
+    console.log(obj)
 
     try {
       await axios.post(API_BASE_URL + '/garden', obj);
@@ -336,6 +434,8 @@ async function addFeature(player) {
       tiles: tiles
     }
 
+    console.log(obj)
+
     try {
       await axios.post(API_BASE_URL + '/monastery', obj);
       await getInterface();   
@@ -351,6 +451,8 @@ async function addFeature(player) {
       total_points: tiles
     }
 
+    console.log(obj)
+
     try {
       await axios.post(API_BASE_URL + '/castle', obj);
       await getInterface();   
@@ -359,20 +461,43 @@ async function addFeature(player) {
     }
   }
 
-  $('input[name="radio_meeple"]:checked').val('NORMAL');
-  $("#select_features").val('');
+  $('input[name="radio_meeple_victor"]:checked').val('NORMAL');
+  $("#select_features_victor").val('');
+  $("#input_tiles_victor").val(0);
+  $("#input_shields_victor").val(0);
+  $("#select_watchtower_victor").val('');
+  $("#input_watchtower_victor").val(0);
+  $('#check_inn_victor').prop('checked', false);
+  $('#check_porco_victor').prop('checked', false);
+  $('#check_catedral_victor').prop('checked', false);
+  $('#check_fada_victor').prop('checked', false);
+  $('#check_mago_victor').prop('checked', false);
+  $('#check_bruxa_victor').prop('checked', false);
 
-  $("#input_tiles").val(0);
-  $("#input_shields").val(0);
+  $('input[name="radio_meeple_shindi"]:checked').val('NORMAL');
+  $("#select_features_shindi").val('');
+  $("#input_tiles_shindi").val(0);
+  $("#input_shields_shindi").val(0);
+  $("#select_watchtower_shindi").val('');
+  $("#input_watchtower_shindi").val(0);
+  $('#check_inn_shindi').prop('checked', false);
+  $('#check_porco_shindi').prop('checked', false);
+  $('#check_catedral_shindi').prop('checked', false);
+  $('#check_fada_shindi').prop('checked', false);
+  $('#check_mago_shindi').prop('checked', false);
+  $('#check_bruxa_shindi').prop('checked', false);
 
-  $("#select_watchtower").val('');
-  $("#input_watchtower").val(0);
-
-  $('#check_inn').prop('checked', false);
-  $('#check_porco').prop('checked', false);
-  $('#check_catedral').prop('checked', false);
-  $('#check_fada').prop('checked', false);
-  $('#check_mago').prop('checked', false);
-  $('#check_bruxa').prop('checked', false);
+  $('input[name="radio_meeple_renan"]:checked').val('NORMAL');
+  $("#select_features_renan").val('');
+  $("#input_tiles_renan").val(0);
+  $("#input_shields_renan").val(0);
+  $("#select_watchtower_renan").val('');
+  $("#input_watchtower_renan").val(0);
+  $('#check_inn_renan').prop('checked', false);
+  $('#check_porco_renan').prop('checked', false);
+  $('#check_catedral_renan').prop('checked', false);
+  $('#check_fada_renan').prop('checked', false);
+  $('#check_mago_renan').prop('checked', false);
+  $('#check_bruxa_renan').prop('checked', false);
 
 }
