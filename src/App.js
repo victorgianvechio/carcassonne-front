@@ -24,6 +24,10 @@ class App {
       res.sendFile(path.resolve(PUBLIC_PATH, 'index.html'));
     });
 
+    this.server.get('/victor', (req, res) => {
+      res.sendFile(path.resolve(PUBLIC_PATH, 'index_victor.html'));
+    });
+
     this.server.get('/', (req, res) => {
       res.redirect('/home');
     });
