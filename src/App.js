@@ -28,6 +28,14 @@ class App {
       res.sendFile(path.resolve(PUBLIC_PATH, 'index_victor.html'));
     });
 
+    this.server.get('/shindi', (req, res) => {
+      res.sendFile(path.resolve(PUBLIC_PATH, 'index_shindi.html'));
+    });
+
+    this.server.get('/renan', (req, res) => {
+      res.sendFile(path.resolve(PUBLIC_PATH, 'index_renan.html'));
+    });
+
     this.server.get('/', (req, res) => {
       res.redirect('/home');
     });
