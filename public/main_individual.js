@@ -6,7 +6,7 @@ const API_BASE_URL = 'http://168.138.141.170:6060/api/v1/carcassonne';
 
 $(document).ready(async function() {
 
-  // setInterval(getInterface, 5000);
+  setInterval(getInterface, 5000);
 
   await getInterface();
 
@@ -458,6 +458,11 @@ async function getInterface() {
     const response = await axios.post(API_BASE_URL + '/interface', {});
 
     // PONTOS
+
+    $("#score_victor").text('Victor: ' + response.data.VICTOR_POINTS + ' pts');
+    $("#score_shindi").text('Shindi: ' + response.data.SHINDI_POINTS + ' pts');
+    $("#score_renan").text('Renan: ' + response.data.RENAN_POINTS + ' pts');
+
     $("#total_points_victor").val(response.data.VICTOR_POINTS);
     $("#total_points_shindi").val(response.data.SHINDI_POINTS);
     $("#total_points_renan").val(response.data.RENAN_POINTS);
