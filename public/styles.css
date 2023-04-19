@@ -141,3 +141,8 @@ body, input, textarea, button {
   height: 3.5rem !important;
   font-size: 1.5rem;
 }
+
+.especiarias {
+  font-size: 0.8rem;
+  margin: -2px;
+}
