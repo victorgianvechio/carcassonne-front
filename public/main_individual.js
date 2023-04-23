@@ -574,7 +574,8 @@ $(document).ready(async function() {
 async function getInterface() {
 
   try {
-    const response = await axios.post(API_BASE_URL + '/interface', {});
+    // const response = await axios.post(API_BASE_URL + '/interface', {});
+    const response = await axios.get(API_BASE_URL + '/interface');
 
     // PONTOS
 
