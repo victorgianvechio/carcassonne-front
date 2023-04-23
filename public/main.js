@@ -13,7 +13,7 @@ $(document).ready(async function() {
   let watchtower_type =  '';
   let inn = false;
   let porco = false;
-  let catedral = false; 
+  let catedral = false;
   let fada = false;
   let mago = false;
   let bruxa = false;
@@ -26,8 +26,8 @@ $(document).ready(async function() {
 
   $('#select_features_victor').change(function() {
     let feature_select = $(this).val();
-  
-    watchtower_type =  $("#select_watchtower_victor");  
+
+    watchtower_type =  $("#select_watchtower_victor");
     inn = $('#group_inn_victor');
     porco = $('#group_pig_victor');
     catedral = $('#group_catedral_victor');
@@ -209,7 +209,7 @@ $(document).ready(async function() {
   $('#select_features_shindi').change(function() {
     let feature_select = $(this).val();
 
-    watchtower_type =  $("#select_watchtower_shindi");  
+    watchtower_type =  $("#select_watchtower_shindi");
     inn = $('#group_inn_shindi');
     porco = $('#group_pig_shindi');
     catedral = $('#group_catedral_shindi');
@@ -391,7 +391,7 @@ $(document).ready(async function() {
   $('#select_features_renan').change(function() {
     let feature_select = $(this).val();
 
-    watchtower_type =  $("#select_watchtower_renan");  
+    watchtower_type =  $("#select_watchtower_renan");
     inn = $('#group_inn_renan');
     porco = $('#group_pig_renan');
     catedral = $('#group_catedral_renan');
@@ -571,8 +571,6 @@ $(document).ready(async function() {
   });
 });
 
-
-
 async function getInterface() {
 
   try {
@@ -613,7 +611,34 @@ async function getInterface() {
     $("#fada-victor").text('Fada: ' + response.data.VICTOR_FAIRY_ROUND + ' ~ ' + response.data.VICTOR_FAIRY_FEATURE + ' pts');
     $("#fada-shindi").text('Fada: ' + response.data.SHINDI_FAIRY_ROUND + ' ~ ' + response.data.SHINDI_FAIRY_FEATURE + ' pts');
     $("#fada-renan").text('Fada: ' + response.data.RENAN_FAIRY_ROUND + ' ~ ' + response.data.RENAN_FAIRY_FEATURE + ' pts');
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // RUA E CIDADE
+    $("#rei-cidade-victor").text('Rei Cidade: ' + response.data.VICTOR_POINTS_KING_CITY + ' pts');
+    $("#rei-rua-victor").text('Rei Rua: ' + response.data.VICTOR_POINTS_KING_ROAD + ' pts');
+    $("#cidades-victor").text('Cidades: ' + response.data.VICTOR_CITIES + ' ~ ' + response.data.VICTOR_POINTS_CITIES + ' pts');
+    $("#ruas-victor").text('Ruas: ' + response.data.VICTOR_ROADS + ' ~ ' + response.data.VICTOR_POINTS_ROADS + ' pts');
+    $("#monasterios-victor").text('Monastérios: ' + response.data.VICTOR_MONASTERIES + ' ~ ' + response.data.VICTOR_POINTS_MONASTERIES + ' pts');
+    $("#jardins-victor").text('Jardins: ' + response.data.VICTOR_GARDENS + ' ~ ' + response.data.VICTOR_POINTS_GARDENS + ' pts');
+    $("#construtor-victor").text('Construtor: ' + response.data.VICTOR_CONSTRUCTOR);
+
+    $("#rei-cidade-shindi").text('Rei Cidade: ' + response.data.SHINDI_POINTS_KING_CITY + ' pts');
+    $("#rei-rua-shindi").text('Rei Rua: ' + response.data.SHINDI_POINTS_KING_ROAD + ' pts');
+    $("#cidades-shindi").text('Cidades: ' + response.data.SHINDI_CITIES + ' ~ ' + response.data.SHINDI_POINTS_CITIES + ' pts');
+    $("#ruas-shindi").text('Ruas: ' + response.data.SHINDI_ROADS + ' ~ ' + response.data.SHINDI_POINTS_ROADS + ' pts');
+    $("#monasterios-shindi").text('Monastérios: ' + response.data.SHINDI_MONASTERIES + ' ~ ' + response.data.SHINDI_POINTS_MONASTERIES + ' pts');
+    $("#jardins-shindi").text('Jardins: ' + response.data.SHINDI_GARDENS + ' ~ ' + response.data.SHINDI_POINTS_GARDENS + ' pts');
+    $("#construtor-shindi").text('Construtor: ' + response.data.SHINDI_CONSTRUCTOR);
+
+    $("#rei-cidade-renan").text('Rei Cidade: ' + response.data.RENAN_POINTS_KING_CITY + ' pts');
+    $("#rei-rua-renan").text('Rei Rua: ' + response.data.RENAN_POINTS_KING_ROAD + ' pts');
+    $("#cidades-renan").text('Cidades: ' + response.data.RENAN_CITIES + ' ~ ' + response.data.RENAN_POINTS_CITIES + ' pts');
+    $("#ruas-renan").text('Ruas: ' + response.data.RENAN_ROADS + ' ~ ' + response.data.RENAN_POINTS_ROADS + ' pts');
+    $("#monasterios-renan").text('Monastérios: ' + response.data.RENAN_MONASTERIES + ' ~ ' + response.data.RENAN_POINTS_MONASTERIES + ' pts');
+    $("#jardins-renan").text('Jardins: ' + response.data.RENAN_GARDENS + ' ~ ' + response.data.RENAN_POINTS_GARDENS + ' pts');
+    $("#construtor-renan").text('Construtor: ' + response.data.RENAN_CONSTRUCTOR);
+
+
+    //////////////////////////////////////////////////
 
     // console.log(response);
   } catch (error) {
@@ -621,10 +646,23 @@ async function getInterface() {
   }
 }
 
+async function addConstructor(player) {
+  try {
+    await axios.post(API_BASE_URL + '/countConstructor', {player});
+    await getInterface();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeConstructor() {
+  // Falta codigo
+}
+
 async function addCity() {
   try {
     await axios.post(API_BASE_URL + '/addCity', {});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -633,7 +671,7 @@ async function addCity() {
 async function removeCity() {
   try {
     await axios.post(API_BASE_URL + '/removeCity', {});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -642,7 +680,7 @@ async function removeCity() {
 async function addRoad() {
   try {
     await axios.post(API_BASE_URL + '/addRoad', {});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -651,7 +689,7 @@ async function addRoad() {
 async function removeRoad() {
   try {
     await axios.post(API_BASE_URL + '/removeRoad', {});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -660,7 +698,7 @@ async function removeRoad() {
 async function addFairy(player) {
   try {
     await axios.post(API_BASE_URL + '/addFairyPoint', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -669,7 +707,7 @@ async function addFairy(player) {
 async function removeFairy(player) {
   try {
     await axios.post(API_BASE_URL + '/removeFairyPoint', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -678,7 +716,7 @@ async function removeFairy(player) {
 async function addGold(player) {
   try {
     await axios.post(API_BASE_URL + '/addGold', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -687,7 +725,7 @@ async function addGold(player) {
 async function removeGold(player) {
   try {
     await axios.post(API_BASE_URL + '/removeGold', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -696,7 +734,7 @@ async function removeGold(player) {
 async function addBarrel(player) {
   try {
     await axios.post(API_BASE_URL + '/addBarrel', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -705,7 +743,7 @@ async function addBarrel(player) {
 async function removeBarrel(player) {
   try {
     await axios.post(API_BASE_URL + '/removeBarrel', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -714,7 +752,7 @@ async function removeBarrel(player) {
 async function addWheat(player) {
   try {
     await axios.post(API_BASE_URL + '/addWheat', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -723,7 +761,7 @@ async function addWheat(player) {
 async function removeWheat(player) {
   try {
     await axios.post(API_BASE_URL + '/removeWheat', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -732,7 +770,7 @@ async function removeWheat(player) {
 async function addSilk(player) {
   try {
     await axios.post(API_BASE_URL + '/addSilk', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -741,7 +779,7 @@ async function addSilk(player) {
 async function removeSilk(player) {
   try {
     await axios.post(API_BASE_URL + '/removeSilk', {player});
-    await getInterface();   
+    await getInterface();
   } catch (error) {
     console.error(error);
   }
@@ -753,7 +791,7 @@ async function countTiles(value, name) {
     $("#input_tiles_" + name).val(valor + 1);
   }
 
-  if(value === '-'){ 
+  if(value === '-'){
     $("#input_tiles_" + name).val(valor -1);
   }
 }
@@ -772,28 +810,28 @@ async function countShields(value, name) {
 async function countWatchtower(value, name) {
   let valor = Number($("#input_watchtower_" + name).val());
   if(value === '+'){
-    $("#input_watchtower_" + name).val(valor + 1); 
+    $("#input_watchtower_" + name).val(valor + 1);
   }
 
   if(value === '-'){
     $("#input_watchtower_" + name).val(valor -1);
   }
 }
- 
+
 async function addFeature(player) {
 
   let meeple = '';
   let feature = 0;
-  
+
   let tiles = 0;
   let shields =  0;
 
   let watchtower_type =  '';
-  let watchtower_quantity =  0; 
+  let watchtower_quantity =  0;
 
   let inn = false;
   let porco = false;
-  let catedral = false; 
+  let catedral = false;
   let fada = false;
   let mago = false;
   let bruxa = false;
@@ -801,13 +839,13 @@ async function addFeature(player) {
   if(player === 'VICTOR') {
     meeple = $('input[name="radio_meeple_victor"]:checked').val();
     feature = $("#select_features_victor").val();
-  
+
     tiles = Number($("#input_tiles_victor").val());
     shields = Number($("#input_shields_victor").val());
-  
+
     watchtower_type =  $("#select_watchtower_victor").val();
     watchtower_quantity =  Number($("#input_watchtower_victor").val());
-  
+
     inn = $('#check_inn_victor').is(':checked');
     porco = $('#check_porco_victor').is(':checked');
     catedral = $('#check_catedral_victor').is(':checked');
@@ -819,13 +857,13 @@ async function addFeature(player) {
   if(player === 'SHINDI') {
     meeple = $('input[name="radio_meeple_shindi"]:checked').val();
     feature = $("#select_features_shindi").val();
-  
+
     tiles = Number($("#input_tiles_shindi").val());
     shields = Number($("#input_shields_shindi").val());
-  
+
     watchtower_type =  $("#select_watchtower_shindi").val();
     watchtower_quantity =  Number($("#input_watchtower_shindi").val());
-  
+
     inn = $('#check_inn_shindi').is(':checked');
     porco = $('#check_porco_shindi').is(':checked');
     catedral = $('#check_catedral_shindi').is(':checked');
@@ -837,13 +875,13 @@ async function addFeature(player) {
   if(player === 'RENAN') {
     meeple = $('input[name="radio_meeple_renan"]:checked').val();
     feature = $("#select_features_renan").val();
-  
+
     tiles = Number($("#input_tiles_renan").val());
     shields = Number($("#input_shields_renan").val());
-  
+
     watchtower_type =  $("#select_watchtower_renan").val();
     watchtower_quantity =  Number($("#input_watchtower_renan").val());
-  
+
     inn = $('#check_inn_renan').is(':checked');
     porco = $('#check_porco_renan').is(':checked');
     catedral = $('#check_catedral_renan').is(':checked');
@@ -851,7 +889,7 @@ async function addFeature(player) {
     mago = $('#check_mago_renan').is(':checked');
     bruxa = $('#check_bruxa_renan').is(':checked');
   }
-  
+
 
   // console.log(meeple)
   // console.log(feature)
@@ -884,7 +922,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/city', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -907,7 +945,7 @@ async function addFeature(player) {
 
      try {
       await axios.post(API_BASE_URL + '/road', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -928,7 +966,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/farm', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -947,7 +985,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/barn', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -968,7 +1006,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/mamada', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -987,7 +1025,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/garden', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -1006,7 +1044,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/monastery', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -1023,7 +1061,7 @@ async function addFeature(player) {
 
     try {
       await axios.post(API_BASE_URL + '/castle', obj);
-      await getInterface();   
+      await getInterface();
     } catch (error) {
       console.error(error);
     }
@@ -1075,39 +1113,39 @@ async function resetModal() {
 
   ////////////////////////////////////////////////////////////
 
-  $("#select_watchtower_victor").hide();  
-  $('#group_inn_victor').hide();  
-  $('#group_pig_victor').hide();  
-  $('#group_catedral_victor').hide();  
-  $('#group_fairy_victor').hide();  
-  $('#group_mage_victor').hide();  
-  $('#group_witch_victor').hide(); 
+  $("#select_watchtower_victor").hide();
+  $('#group_inn_victor').hide();
+  $('#group_pig_victor').hide();
+  $('#group_catedral_victor').hide();
+  $('#group_fairy_victor').hide();
+  $('#group_mage_victor').hide();
+  $('#group_witch_victor').hide();
   $('#group_btn_victor').hide();
-  $('#group_tiles_victor').hide();  
-  $('#group_shields_victor').hide();  
-  $('#group_watchtower_victor').hide();  
+  $('#group_tiles_victor').hide();
+  $('#group_shields_victor').hide();
+  $('#group_watchtower_victor').hide();
 
-  $("#select_watchtower_shindi").hide();  
-  $('#group_inn_shindi').hide();  
-  $('#group_pig_shindi').hide();  
-  $('#group_catedral_shindi').hide();  
-  $('#group_fairy_shindi').hide();  
-  $('#group_mage_shindi').hide();  
-  $('#group_witch_shindi').hide();  
+  $("#select_watchtower_shindi").hide();
+  $('#group_inn_shindi').hide();
+  $('#group_pig_shindi').hide();
+  $('#group_catedral_shindi').hide();
+  $('#group_fairy_shindi').hide();
+  $('#group_mage_shindi').hide();
+  $('#group_witch_shindi').hide();
   $('#group_btn_shindi').hide();
-  $('#group_tiles_shindi').hide();  
-  $('#group_shields_shindi').hide();  
-  $('#group_watchtower_shindi').hide();  
+  $('#group_tiles_shindi').hide();
+  $('#group_shields_shindi').hide();
+  $('#group_watchtower_shindi').hide();
 
-  $("#select_watchtower_renan").hide();  
-  $('#group_inn_renan').hide();  
-  $('#group_pig_renan').hide();  
-  $('#group_catedral_renan').hide();  
-  $('#group_fairy_renan').hide();  
-  $('#group_mage_renan').hide();  
-  $('#group_witch_renan').hide();  
+  $("#select_watchtower_renan").hide();
+  $('#group_inn_renan').hide();
+  $('#group_pig_renan').hide();
+  $('#group_catedral_renan').hide();
+  $('#group_fairy_renan').hide();
+  $('#group_mage_renan').hide();
+  $('#group_witch_renan').hide();
   $('#group_btn_renan').hide();
-  $('#group_tiles_renan').hide();  
-  $('#group_shields_renan').hide();  
-  $('#group_watchtower_renan').hide();  
+  $('#group_tiles_renan').hide();
+  $('#group_shields_renan').hide();
+  $('#group_watchtower_renan').hide();
 }
