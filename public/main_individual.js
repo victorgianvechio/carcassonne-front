@@ -39,13 +39,13 @@ $(document).ready(async function() {
     group_shields = $('#group_shields_victor');
     group_watchtower = $('#group_watchtower_victor');
 
-    label_tiles = $('#label_tiles_victor');
-    label_shields = $('#label_shields_victor');
+    label_tiles = $('#input_tiles_victor');
+    label_shields = $('#input_shields_victor');
 
     if(feature_select === '') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.hide();
       group_shields.hide();
@@ -62,8 +62,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CITY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.show();
@@ -80,8 +80,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'ROAD') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -98,8 +98,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'FARM') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -116,8 +116,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'BARN') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -134,8 +134,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MAMADA') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -152,8 +152,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'GARDEN') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -170,8 +170,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MONASTERY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -188,8 +188,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CASTLE') {
 
-      label_tiles.text('Total de Pontos');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Total de Pontos");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -221,13 +221,13 @@ $(document).ready(async function() {
     group_shields = $('#group_shields_shindi');
     group_watchtower = $('#group_watchtower_shindi');
 
-    label_tiles = $('#label_tiles_shindi');
-    label_shields = $('#label_shields_shindi');
+    label_tiles = $('#input_tiles_shindi');
+    label_shields = $('#input_shields_shindi');
 
     if(feature_select === '') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.hide();
       group_shields.hide();
@@ -244,8 +244,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CITY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.show();
@@ -262,8 +262,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'ROAD') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -280,8 +280,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'FARM') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -298,8 +298,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'BARN') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -316,8 +316,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MAMADA') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -334,8 +334,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'GARDEN') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -352,8 +352,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MONASTERY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -370,8 +370,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CASTLE') {
 
-      label_tiles.text('Total de Pontos');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Total de Pontos");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -403,13 +403,13 @@ $(document).ready(async function() {
     group_shields = $('#group_shields_renan');
     group_watchtower = $('#group_watchtower_renan');
 
-    label_tiles = $('#label_tiles_renan');
-    label_shields = $('#label_shields_renan');
+    label_tiles = $('#input_tiles_renan');
+    label_shields = $('#input_shields_renan');
 
     if(feature_select === '') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.hide();
       group_shields.hide();
@@ -426,8 +426,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CITY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.show();
@@ -444,8 +444,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'ROAD') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -462,8 +462,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'FARM') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -480,8 +480,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'BARN') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -498,8 +498,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MAMADA') {
 
-      label_tiles.text('Cidades Completas');
-      label_shields.text('Castelos');
+      label_tiles.attr("placeholder", "Cidades Completas");
+      label_shields.attr("placeholder", "Castelos");
 
       group_tiles.show();
       group_shields.show();
@@ -516,8 +516,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'GARDEN') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -534,8 +534,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'MONASTERY') {
 
-      label_tiles.text('Tiles');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -552,8 +552,8 @@ $(document).ready(async function() {
 
     if(feature_select === 'CASTLE') {
 
-      label_tiles.text('Total de Pontos');
-      label_shields.text('Escudos');
+      label_tiles.attr("placeholder", "Total de Pontos");
+      label_shields.attr("placeholder", "Escudos");
 
       group_tiles.show();
       group_shields.hide();
@@ -578,11 +578,6 @@ async function getInterface() {
     const response = await axios.get(API_BASE_URL + '/interface');
 
     // PONTOS
-
-    $("#score_victor").text('Victor: ' + response.data.VICTOR_POINTS + ' pts');
-    $("#score_shindi").text('Shindi: ' + response.data.SHINDI_POINTS + ' pts');
-    $("#score_renan").text('Renan: ' + response.data.RENAN_POINTS + ' pts');
-
     $("#total_points_victor").val(response.data.VICTOR_POINTS);
     $("#total_points_shindi").val(response.data.SHINDI_POINTS);
     $("#total_points_renan").val(response.data.RENAN_POINTS);
@@ -617,7 +612,6 @@ async function getInterface() {
     $("#fada-victor").text('Fada: ' + response.data.VICTOR_FAIRY_ROUND + ' ~ ' + response.data.VICTOR_FAIRY_FEATURE + ' pts');
     $("#fada-shindi").text('Fada: ' + response.data.SHINDI_FAIRY_ROUND + ' ~ ' + response.data.SHINDI_FAIRY_FEATURE + ' pts');
     $("#fada-renan").text('Fada: ' + response.data.RENAN_FAIRY_ROUND + ' ~ ' + response.data.RENAN_FAIRY_FEATURE + ' pts');
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // RUA E CIDADE
     $("#rei-cidade-victor").text('Rei Cidade: ' + response.data.VICTOR_POINTS_KING_CITY + ' pts');
@@ -643,6 +637,9 @@ async function getInterface() {
     $("#monasterios-renan").text('Monastérios: ' + response.data.RENAN_MONASTERIES + ' ~ ' + response.data.RENAN_POINTS_MONASTERIES + ' pts');
     $("#jardins-renan").text('Jardins: ' + response.data.RENAN_GARDENS + ' ~ ' + response.data.RENAN_POINTS_GARDENS + ' pts');
     $("#construtor-renan").text('Construtor: ' + response.data.RENAN_CONSTRUCTOR);
+
+
+    //////////////////////////////////////////////////
 
     // console.log(response);
   } catch (error) {
@@ -1083,10 +1080,10 @@ async function addFeature(player) {
 async function resetModal() {
   $('input[name="radio_meeple_victor"]:checked').val('NORMAL');
   $("#select_features_victor").val('');
-  $("#input_tiles_victor").val(0);
-  $("#input_shields_victor").val(0);
+  $("#input_tiles_victor").val('');
+  $("#input_shields_victor").val('');
   $("#select_watchtower_victor").val('');
-  $("#input_watchtower_victor").val(0);
+  $("#input_watchtower_victor").val('');
   $('#check_inn_victor').prop('checked', false);
   $('#check_porco_victor').prop('checked', false);
   $('#check_catedral_victor').prop('checked', false);
@@ -1096,10 +1093,10 @@ async function resetModal() {
 
   $('input[name="radio_meeple_shindi"]:checked').val('NORMAL');
   $("#select_features_shindi").val('');
-  $("#input_tiles_shindi").val(0);
-  $("#input_shields_shindi").val(0);
+  $("#input_tiles_shindi").val('');
+  $("#input_shields_shindi").val('');
   $("#select_watchtower_shindi").val('');
-  $("#input_watchtower_shindi").val(0);
+  $("#input_watchtower_shindi").val('');
   $('#check_inn_shindi').prop('checked', false);
   $('#check_porco_shindi').prop('checked', false);
   $('#check_catedral_shindi').prop('checked', false);
@@ -1109,10 +1106,10 @@ async function resetModal() {
 
   $('input[name="radio_meeple_renan"]:checked').val('NORMAL');
   $("#select_features_renan").val('');
-  $("#input_tiles_renan").val(0);
-  $("#input_shields_renan").val(0);
+  $("#input_tiles_renan").val('');
+  $("#input_shields_renan").val('');
   $("#select_watchtower_renan").val('');
-  $("#input_watchtower_renan").val(0);
+  $("#input_watchtower_renan").val('');
   $('#check_inn_renan').prop('checked', false);
   $('#check_porco_renan').prop('checked', false);
   $('#check_catedral_renan').prop('checked', false);

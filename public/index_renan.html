@@ -53,6 +53,10 @@
           data-bs-toggle="modal" data-bs-target="#modalRenan">+</button>
         <button onclick="addFairy('RENAN')" type="button" class="btn btn-primary btn-lg btn-fada">fada</button>
         <button onclick="removeFairy('RENAN')" type="button" class="btn btn-danger btn-lg btn-fada">fada</button>
+        <button onclick="addConstructor('RENAN')" type="button"
+          class="btn btn-primary btn-lg btn-fada">construc</button>
+        <button onclick="removeConstructor('RENAN')" type="button"
+          class="btn btn-danger btn-lg btn-fada">construc</button>
       </div>
 
       <p class="especiarias" id="ouro-renan">Ouro: 0 ~ 0 pts</p>
@@ -147,9 +151,9 @@
           </select>
 
           <div style="display:none;" id="group_tiles_renan" class="input-group">
-            <label id="label_tiles_renan" for="input_tiles_renan" class="form-label">Tiles</label>
+            <!-- <label id="label_tiles_renan" for="input_tiles_renan" class="form-label">Tiles</label> -->
             <input id="input_tiles_renan" name="input_tiles_renan" type="number" class="form-control"
-              placeholder="Tiles" value="0" readonly>
+              placeholder="Tiles">
             <button onclick="countTiles('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countTiles('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
@@ -179,8 +183,8 @@
           </div>
 
           <div style="display:none;" id="group_shields_renan" class="input-group">
-            <label id="label_shields_renan" for="input_shields" class="form-label">Escudos</label>
-            <input id="input_shields_renan" type="number" class="form-control" placeholder="Escudos" value="0" readonly>
+            <!-- <label id="label_shields_renan" for="input_shields" class="form-label">Escudos</label> -->
+            <input id="input_shields_renan" type="number" class="form-control" placeholder="Escudos">
             <button onclick="countShields('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countShields('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
@@ -228,9 +232,8 @@
           </select>
 
           <div style="display:none;" id="group_watchtower_renan" class="input-group">
-            <label for="input_watchtower" class="form-label">Quantidade</label>
-            <input id="input_watchtower_renan" type="number" class="form-control" placeholder="Watchtower quantidade"
-              value="0" readonly>
+            <!-- <label for="input_watchtower" class="form-label">Quantidade</label> -->
+            <input id="input_watchtower_renan" type="number" class="form-control" placeholder="Watchtower quantidade">
             <button onclick="countWatchtower('+', 'renan')" class="btn btn-outline-primary" type="button">+</button>
             <button onclick="countWatchtower('-', 'renan')" class="btn btn-outline-danger" type="button">-</button>
           </div>
