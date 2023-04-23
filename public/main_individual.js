@@ -650,6 +650,24 @@ async function getInterface() {
   }
 }
 
+async function addConstructor(player) {
+  try {
+    await axios.post(API_BASE_URL + '/addConstructor', {player});
+    await getInterface();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function removeConstructor(player) {
+  try {
+    await axios.post(API_BASE_URL + '/removeConstructor', {player});
+    await getInterface();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function addCity() {
   try {
     await axios.post(API_BASE_URL + '/addCity', {});
