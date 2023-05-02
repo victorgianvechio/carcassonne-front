@@ -6,7 +6,7 @@
 
 body {
   background: #c4c4cc;
-  -webkit-font-smoothing: antialiased;  
+  -webkit-font-smoothing: antialiased;
 }
 
 body, input, textarea, button {
@@ -14,6 +14,21 @@ body, input, textarea, button {
   font-weight: 400;
   font-size: 1rem;
 }
+
+.checkbox-xl .form-check-input {
+  top: 1.2rem;
+  scale: 1.7;
+  margin-right: 0.8rem;
+}
+
+.checkbox-xl .form-check-label {
+  padding-top: 19px;
+}
+
+/* .checkbox-xl {
+  width: 30px !important;
+  height: 30px !important;
+ } */
 
 .container {
   display: flex;
@@ -105,7 +120,7 @@ body, input, textarea, button {
   width: 7rem;
   border-width: 3px;
   border-color: #000;
-  text-align: center; 
+  text-align: center;
   font-size: 30px;
 }
 
@@ -128,21 +143,21 @@ body, input, textarea, button {
   justify-content: space-between;
 }
 
-.btn-atualizar {  
+.btn-atualizar {
   margin-top: 2rem;
   width: 10rem !important;
   height: 5rem !important;
   font-size: 1.5rem;
 }
 
-.btn-add {  
+.btn-add {
   /* margin-top: 2rem; */
   width: 3.5rem !important;
   height: 3.5rem !important;
   font-size: 1.5rem;
 }
 
-.btn-fada {  
+.btn-fada {
   /* margin-top: 2rem; */
   width: 3.5rem !important;
   height: 3.5rem !important;

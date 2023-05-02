@@ -51,6 +51,7 @@
       <div class="button-container">
         <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg btn-add" href="#"
           data-bs-toggle="modal" data-bs-target="#modalVictor">+</button>
+        <button onclick="addFairy('VICTOR')" type="button" class="btn btn-success btn-lg btn-add">F</button>
       </div>
 
       <p class="especiarias" id="ouro-victor">Ouro: 0 ~ 0 pts</p>
@@ -83,6 +84,7 @@
       <div class="button-container">
         <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg btn-add" href="#"
           data-bs-toggle="modal" data-bs-target="#modalShindi">+</button>
+        <button onclick="addFairy('SHINDI')" type="button" class="btn btn-success btn-lg btn-add">F</button>
       </div>
 
       <p class="especiarias" id="ouro-shindi">Ouro: 0 ~ 0 pts</p>
@@ -115,6 +117,7 @@
       <div class="button-container">
         <button onclick="resetModal()" type="button" class="btn btn-primary btn-lg btn-add" href="#"
           data-bs-toggle="modal" data-bs-target="#modalRenan">+</button>
+        <button onclick="addFairy('RENAN')" type="button" class="btn btn-success btn-lg btn-add">F</button>
       </div>
 
       <p class="especiarias" id="ouro-renan">Ouro: 0 ~ 0 pts</p>
@@ -166,21 +169,21 @@
         <div class="modal-body">
 
           <div class="others-container">
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="NORMAL" name="radio_meeple_victor"
                 id="meeple_normal_victor" checked>
               <label class="form-check-label" for="meeple_normal_victor">
                 Normal
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="GHOST" name="radio_meeple_victor"
                 id="meeple_ghost_victor">
               <label class="form-check-label" for="meeple_ghost_victor">
                 Ghost
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="PRIEST" name="radio_meeple_victor"
                 id="meeple_priest_victor">
               <label class="form-check-label" for="meeple_priest_victor">
@@ -200,6 +203,7 @@
             <option value="GARDEN">Jadim</option>
             <option value="MONASTERY">Monastério</option>
             <option value="CASTLE">Castelo</option>
+            <!-- <option value="OTHERS">Outros</option> -->
           </select>
 
           <div style="display:none;" id="group_tiles_victor" class="input-group">
@@ -212,21 +216,21 @@
 
           <div class="others-container">
 
-            <div id="group_inn_victor" style="display:none;" class="form-check">
+            <div id="group_inn_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_victor">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div id="group_catedral_victor" style="display:none;" class="form-check">
+            <div id="group_catedral_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_victor">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <div id="group_pig_victor" style="display:none;" class="form-check">
+            <div id="group_pig_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_victor">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -251,21 +255,21 @@
 
           <div class="others-container">
 
-            <div id="group_fairy_victor" style="display:none;" class="form-check">
+            <div id="group_fairy_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_fada_victor">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div id="group_mage_victor" style="display:none;" class="form-check">
+            <div id="group_mage_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_mago_victor">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div id="group_witch_victor" style="display:none;" class="form-check">
+            <div id="group_witch_victor" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_bruxa_victor">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -290,6 +294,44 @@
             <button onclick="countWatchtower('-', 'victor')" class="btn btn-outline-danger" type="button">-</button>
           </div>
 
+          <div style="display:none;" id="group_bazaar_meeple_victor" class="input-group">
+
+            <div class="others-container">
+              <div class="form-check checkbox-xl">
+                <input class="form-check-input" type="radio" value="NORMAL" name="radio_bazaar_meeple_victor"
+                  id="buy_sell_meeple_victor" checked>
+                <label class="form-check-label" for="meeple_normal_victor">
+                  Compra/Venda Meeple
+                </label>
+              </div>
+              <div class="form-check checkbox-xl">
+                <input class="form-check-input" type="radio" value="GHOST" name="radio_bazaar_meeple_victor"
+                  id="bazaar_victor">
+                <label class="form-check-label" for="meeple_ghost_victor">
+                  Bazar
+                </label>
+              </div>
+            </div>
+
+            <select id="select_comprador_victor" class="form-select" aria-label="Default select example">
+              <option value="NONE" selected>Comprador</option>
+              <option value="VICTOR">Victor</option>
+              <option value="SHINDI">Shindi</option>
+              <option value="RENAN">Renan</option>
+            </select>
+
+            <select id="select_vendedor_victor" class="form-select" aria-label="Default select example">
+              <option value="NONE" selected>Vendedor</option>
+              <option value="VICTOR">Victor</option>
+              <option value="SHINDI">Shindi</option>
+              <option value="RENAN">Renan</option>
+            </select>
+
+            <div class="input-group">
+              <input id="input_meeple_bazar_victor" type="number" class="form-control" placeholder="Quantidade pontos">
+            </div>
+          </div>
+
           <div id="group_btn_victor" style="display:none;" class="button-container">
             <button id="btn-add-victor" onclick="addFeature('VICTOR')" type="button" class="btn btn-primary"
               data-bs-dismiss="modal">add</button>
@@ -297,35 +339,57 @@
 
         </div>
         <div class="modal-footer">
-          <button onclick="addFairy('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            fada</button>
-          <button onclick="removeFairy('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            fada</button>
 
-          <button onclick="addGold('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            gold</button>
-          <button onclick="removeGold('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            gold</button>
+          <div>
+            <button onclick="addFairy('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              fada</button>
+            <button onclick="removeFairy('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              fada</button>
+          </div>
 
-          <button onclick="addBarrel('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            barril</button>
-          <button onclick="removeBarrel('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            barril</button>
+          <br>
 
-          <button onclick="addWheat('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            trigo</button>
-          <button onclick="removeWheat('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            trigo</button>
+          <div>
+            <button onclick="addGold('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              gold</button>
+            <button onclick="removeGold('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              gold</button>
+          </div>
 
-          <button onclick="addSilk('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            seda</button>
-          <button onclick="removeSilk('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            seda</button>
+          <div>
+            <button onclick="addBarrel('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              barril</button>
+            <button onclick="removeBarrel('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              barril</button>
+          </div>
 
-          <button onclick="addConstructor('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+          <div>
+            <button onclick="addWheat('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              trigo</button>
+            <button onclick="removeWheat('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              trigo</button>
+          </div>
+
+          <div>
+            <button onclick="addSilk('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              seda</button>
+            <button onclick="removeSilk('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              seda</button>
+          </div>
+
+          <div>
+            <button onclick="setKingCity('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Cidade</button>
+            <button onclick="setKingRoad('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Rua</button>
+          </div>
+
+          <!-- <button onclick="addConstructor('VICTOR')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
             construtor</button>
           <button onclick="removeConstructor('VICTOR')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            construtor</button>
+            construtor</button> -->
+
+
         </div>
       </div>
     </div>
@@ -342,21 +406,21 @@
         <div class="modal-body">
 
           <div class="others-container">
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="NORMAL" name="radio_meeple_shindi"
                 id="meeple_normal_shindi" checked>
               <label class="form-check-label" for="meeple_normal_shindi">
                 Normal
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="GHOST" name="radio_meeple_shindi"
                 id="meeple_ghost_shindi">
               <label class="form-check-label" for="meeple_ghost_shindi">
                 Ghost
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="PRIEST" name="radio_meeple_shindi"
                 id="meeple_priest_shindi">
               <label class="form-check-label" for="meeple_priest_shindi">
@@ -431,21 +495,21 @@
 
           <div class="others-container">
 
-            <div id="group_inn_shindi" style="display:none;" class="form-check">
+            <div id="group_inn_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_shindi">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div id="group_catedral_shindi" style="display:none;" class="form-check">
+            <div id="group_catedral_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_shindi">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <div id="group_pig_shindi" style="display:none;" class="form-check">
+            <div id="group_pig_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_shindi">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -470,21 +534,21 @@
 
           <div class="others-container">
 
-            <div id="group_fairy_shindi" style="display:none;" class="form-check">
+            <div id="group_fairy_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_fada_shindi">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div id="group_mage_shindi" style="display:none;" class="form-check">
+            <div id="group_mage_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_mago_shindi">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div id="group_witch_shindi" style="display:none;" class="form-check">
+            <div id="group_witch_shindi" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_bruxa_shindi">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -516,35 +580,54 @@
 
         </div>
         <div class="modal-footer">
-          <button onclick="addFairy('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            fada</button>
-          <button onclick="removeFairy('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            fada</button>
+          <div>
+            <button onclick="addFairy('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              fada</button>
+            <button onclick="removeFairy('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              fada</button>
+          </div>
 
-          <button onclick="addGold('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            gold</button>
-          <button onclick="removeGold('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            gold</button>
+          <br>
 
-          <button onclick="addBarrel('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            barril</button>
-          <button onclick="removeBarrel('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            barril</button>
+          <div>
+            <button onclick="addGold('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              gold</button>
+            <button onclick="removeGold('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              gold</button>
+          </div>
 
-          <button onclick="addWheat('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            trigo</button>
-          <button onclick="removeWheat('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            trigo</button>
+          <div>
+            <button onclick="addBarrel('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              barril</button>
+            <button onclick="removeBarrel('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              barril</button>
+          </div>
 
-          <button onclick="addSilk('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            seda</button>
-          <button onclick="removeSilk('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            seda</button>
+          <div>
+            <button onclick="addWheat('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              trigo</button>
+            <button onclick="removeWheat('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              trigo</button>
+          </div>
 
-          <button onclick="addConstructor('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+          <div>
+            <button onclick="addSilk('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              seda</button>
+            <button onclick="removeSilk('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              seda</button>
+          </div>
+
+          <div>
+            <button onclick="setKingCity('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Cidade</button>
+            <button onclick="setKingRoad('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Rua</button>
+          </div>
+
+          <!-- <button onclick="addConstructor('SHINDI')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
             construtor</button>
           <button onclick="removeConstructor('SHINDI')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            construtor</button>
+            construtor</button> -->
         </div>
       </div>
     </div>
@@ -562,21 +645,21 @@
         <div class="modal-body">
 
           <div class="others-container">
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="NORMAL" name="radio_meeple_renan"
                 id="meeple_normal_renan" checked>
               <label class="form-check-label" for="meeple_normal_renan">
                 Normal
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="GHOST" name="radio_meeple_renan"
                 id="meeple_ghost_renan">
               <label class="form-check-label" for="meeple_ghost_renan">
                 Ghost
               </label>
             </div>
-            <div class="form-check">
+            <div class="form-check checkbox-xl">
               <input class="form-check-input" type="radio" value="PRIEST" name="radio_meeple_renan"
                 id="meeple_priest_renan">
               <label class="form-check-label" for="meeple_priest_renan">
@@ -608,21 +691,21 @@
 
           <div class="others-container">
 
-            <div id="group_inn_renan" style="display:none;" class="form-check">
+            <div id="group_inn_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_inn_renan">
               <label class="form-check-label" for="check_inn">
                 INN
               </label>
             </div>
 
-            <div id="group_catedral_renan" style="display:none;" class="form-check">
+            <div id="group_catedral_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_catedral_renan">
               <label class="form-check-label" for="check_catedral">
                 Catedral
               </label>
             </div>
 
-            <div id="group_pig_renan" style="display:none;" class="form-check">
+            <div id="group_pig_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" value="" id="check_porco_renan">
               <label class="form-check-label" for="check_porco">
                 Porco
@@ -647,21 +730,21 @@
 
           <div class="others-container">
 
-            <div id="group_fairy_renan" style="display:none;" class="form-check">
+            <div id="group_fairy_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_fada_renan">
               <label class="form-check-label" for="check_fada">
                 Fada
               </label>
             </div>
 
-            <div id="group_mage_renan" style="display:none;" class="form-check">
+            <div id="group_mage_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_mago_renan">
               <label class="form-check-label" for="check_mago">
                 Mago
               </label>
             </div>
 
-            <div id="group_witch_renan" style="display:none;" class="form-check">
+            <div id="group_witch_renan" style="display:none;" class="form-check checkbox-xl">
               <input class="form-check-input" type="checkbox" id="check_bruxa_renan">
               <label class="form-check-label" for="check_bruxa">
                 Bruxa
@@ -693,35 +776,54 @@
 
         </div>
         <div class="modal-footer">
-          <button onclick="addFairy('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            fada</button>
-          <button onclick="removeFairy('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            fada</button>
+          <div>
+            <button onclick="addFairy('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              fada</button>
+            <button onclick="removeFairy('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              fada</button>
+          </div>
 
-          <button onclick="addGold('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            gold</button>
-          <button onclick="removeGold('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            gold</button>
+          <br>
 
-          <button onclick="addBarrel('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            barril</button>
-          <button onclick="removeBarrel('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            barril</button>
+          <div>
+            <button onclick="addGold('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              gold</button>
+            <button onclick="removeGold('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              gold</button>
+          </div>
 
-          <button onclick="addWheat('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            trigo</button>
-          <button onclick="removeWheat('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            trigo</button>
+          <div>
+            <button onclick="addBarrel('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              barril</button>
+            <button onclick="removeBarrel('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              barril</button>
+          </div>
 
-          <button onclick="addSilk('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
-            seda</button>
-          <button onclick="removeSilk('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            seda</button>
+          <div>
+            <button onclick="addWheat('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              trigo</button>
+            <button onclick="removeWheat('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              trigo</button>
+          </div>
 
-          <button onclick="addConstructor('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+          <div>
+            <button onclick="addSilk('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
+              seda</button>
+            <button onclick="removeSilk('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
+              seda</button>
+          </div>
+
+          <div>
+            <button onclick="setKingCity('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Cidade</button>
+            <button onclick="setKingRoad('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">Rei
+              da Rua</button>
+          </div>
+
+          <!-- <button onclick="addConstructor('RENAN')" type="button" class="btn btn-primary" data-bs-dismiss="modal">+
             construtor</button>
           <button onclick="removeConstructor('RENAN')" type="button" class="btn btn-danger" data-bs-dismiss="modal">-
-            construtor</button>
+            construtor</button> -->
         </div>
       </div>
     </div>

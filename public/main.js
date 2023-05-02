@@ -1,4 +1,5 @@
 const API_BASE_URL = 'http://168.138.141.170:6060/api/v1/carcassonne';
+// const API_BASE_URL = 'http://localhost:6060/api/v1/carcassonne';
 
 // (async function () {
 //   await getInterface();
@@ -38,6 +39,7 @@ $(document).ready(async function() {
     group_tiles = $('#group_tiles_victor');
     group_shields = $('#group_shields_victor');
     group_watchtower = $('#group_watchtower_victor');
+    group_bazaar_meeple_victor = $('#group_bazaar_meeple_victor');
 
     label_tiles = $('#input_tiles_victor');
     label_shields = $('#input_shields_victor');
@@ -58,6 +60,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.hide();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'CITY') {
@@ -76,6 +79,7 @@ $(document).ready(async function() {
       mago.show();
       bruxa.show();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'ROAD') {
@@ -94,6 +98,7 @@ $(document).ready(async function() {
       mago.show();
       bruxa.show();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'FARM') {
@@ -112,6 +117,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'BARN') {
@@ -130,6 +136,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'MAMADA') {
@@ -148,6 +155,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'GARDEN') {
@@ -166,6 +174,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'MONASTERY') {
@@ -184,6 +193,7 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
     }
 
     if(feature_select === 'CASTLE') {
@@ -202,6 +212,26 @@ $(document).ready(async function() {
       mago.hide();
       bruxa.hide();
       botao.show();
+      group_bazaar_meeple_victor.hide();
+    }
+
+    if(feature_select === 'OTHERS') {
+
+      label_tiles.attr("placeholder", "Tiles");
+      label_shields.attr("placeholder", "Escudos");
+
+      group_tiles.hide();
+      group_shields.hide();
+      group_watchtower.hide();
+      watchtower_type.hide();
+      inn.hide();
+      porco.hide();
+      catedral.hide();
+      fada.hide();
+      mago.hide();
+      bruxa.hide();
+      botao.hide();
+      group_bazaar_meeple_victor.show();
     }
 
   });
@@ -737,6 +767,24 @@ async function removeGold(player) {
   }
 }
 
+async function setKingCity(player) {
+  try {
+    await axios.post(API_BASE_URL + '/kingCity', {player});
+    await getInterface();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function setKingRoad(player) {
+  try {
+    await axios.post(API_BASE_URL + '/kingRoad', {player});
+    await getInterface();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 async function addBarrel(player) {
   try {
     await axios.post(API_BASE_URL + '/addBarrel', {player});
@@ -915,7 +963,7 @@ async function addFeature(player) {
       player: player,
       meeple: meeple,
       fairy: fada,
-      wtch: bruxa,
+      witch: bruxa,
       mage: mago,
       tiles: tiles,
       shields: shields,
@@ -939,7 +987,7 @@ async function addFeature(player) {
       player: player,
       meeple: meeple,
       fairy: fada,
-      wtch: bruxa,
+      witch: bruxa,
       mage: mago,
       tiles: tiles,
       inn: inn,
@@ -1117,6 +1165,8 @@ async function resetModal() {
   $('#check_mago_renan').prop('checked', false);
   $('#check_bruxa_renan').prop('checked', false);
 
+
+
   ////////////////////////////////////////////////////////////
 
   $("#select_watchtower_victor").hide();
@@ -1130,6 +1180,7 @@ async function resetModal() {
   $('#group_tiles_victor').hide();
   $('#group_shields_victor').hide();
   $('#group_watchtower_victor').hide();
+  $('#group_bazaar_meeple_victor').hide();
 
   $("#select_watchtower_shindi").hide();
   $('#group_inn_shindi').hide();
@@ -1142,6 +1193,7 @@ async function resetModal() {
   $('#group_tiles_shindi').hide();
   $('#group_shields_shindi').hide();
   $('#group_watchtower_shindi').hide();
+  $('#group_bazaar_meeple_shindi').hide();
 
   $("#select_watchtower_renan").hide();
   $('#group_inn_renan').hide();
@@ -1154,4 +1206,5 @@ async function resetModal() {
   $('#group_tiles_renan').hide();
   $('#group_shields_renan').hide();
   $('#group_watchtower_renan').hide();
+  $('#group_bazaar_meeple_renan').hide();
 }
